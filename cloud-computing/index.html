@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Computing — Central de Revisão | ADS Unialfa</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO / NAV ===================== -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo">☁️</span>
+      <div class="brand-text">
+        <strong>Cloud Computing</strong>
+        <small>Central de Revisão · ADS</small>
+      </div>
+    </div>
+    <nav class="nav" id="nav">
+      <button class="nav-btn active" data-target="resumo">📚 Resumão</button>
+      <button class="nav-btn" data-target="simulado">📝 Simulado</button>
+      <button class="nav-btn" data-target="desafio">🏆 Desafio</button>
+      <button class="nav-btn" data-target="flashcards">⚡ Flashcards</button>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <span class="badge">Revisão para a prova</span>
+      <h1>Domine <span class="grad">Cloud Computing</span> antes da prova</h1>
+      <p class="hero-sub">
+        Todo o conteúdo das suas anotações + as 19 questões da revisão do professor,
+        com correção automática, explicações e flashcards. Bora gabaritar. 🚀
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-jump="simulado">Começar simulado →</button>
+        <button class="btn btn-ghost" data-jump="resumo">Revisar conteúdo</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>6</strong><span>temas</span></div>
+        <div class="stat"><strong>19</strong><span>questões</span></div>
+        <div class="stat"><strong>1</strong><span>desafio</span></div>
+        <div class="stat"><strong>18</strong><span>flashcards</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- ===================== RESUMÃO ===================== -->
+    <section id="resumo" class="view active">
+      <div class="section-head">
+        <h2>📚 Resumão por tema</h2>
+        <p>Clique em cada tema para expandir. Cada bloco mostra <em>quais questões</em> ele responde.</p>
+      </div>
+
+      <!-- TEMA 1 -->
+      <details class="topic" open>
+        <summary>
+          <span class="topic-ico">⚖️</span>
+          <span class="topic-title">Escalabilidade, Elasticidade & Disponibilidade</span>
+          <span class="topic-tag">cai na Q1, Q6, Q10, Q12, Q14, Q16</span>
+        </summary>
+        <div class="topic-body">
+          <p>O coração da nuvem: <strong>crescer e encolher sob demanda</strong> sem cair.</p>
+
+          <h4>Escalabilidade — crescer a capacidade</h4>
+          <table>
+            <thead><tr><th>Tipo</th><th>Como funciona</th><th>Analogia</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Vertical (scale up)</strong></td><td>Aumentar CPU/RAM do <em>mesmo</em> servidor</td><td>Trocar o carro por um mais potente</td></tr>
+              <tr><td><strong>Horizontal (scale out)</strong></td><td>Adicionar <em>mais</em> servidores e dividir a carga</td><td>Colocar mais carros na estrada</td></tr>
+            </tbody>
+          </table>
+
+          <div class="callout tip">
+            <strong>💡 Elasticidade ≠ Escalabilidade.</strong>
+            Escalabilidade é <em>poder</em> crescer. Elasticidade é crescer e encolher
+            <strong>automaticamente</strong>, em tempo real, conforme a demanda (Auto Scaling).
+            Ex.: streaming cria servidores no lançamento de uma série e desliga depois.
+          </div>
+
+          <h4>Alta Disponibilidade (HA)</h4>
+          <p>Garantir que o sistema continue funcionando <strong>mesmo diante de falhas</strong>.
+          Consegue-se com <strong>redundância</strong> + <strong>balanceamento de carga</strong>.</p>
+
+          <h4>Regiões e Zonas de Disponibilidade</h4>
+          <ul>
+            <li><strong>Região:</strong> uma área geográfica (ex.: São Paulo, Virgínia).</li>
+            <li><strong>Zona de Disponibilidade (AZ):</strong> data centers isolados dentro da região.</li>
+            <li><strong>Multi-Region:</strong> rodar em várias regiões → tolerância a falhas e baixa latência global.</li>
+          </ul>
+
+          <h4>Modelo On-Demand (pay-as-you-go)</h4>
+          <p>Você paga <strong>conforme o uso</strong> dos recursos — sem comprar servidor, sem custo fixo. É o que viabiliza a elasticidade.</p>
+        </div>
+      </details>
+
+      <!-- TEMA 2 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🖥️</span>
+          <span class="topic-title">Modelos de Serviço — IaaS, PaaS, SaaS</span>
+          <span class="topic-tag">cai na Q2, Q11</span>
+        </summary>
+        <div class="topic-body">
+          <p>Define <strong>o quanto o provedor gerencia</strong> e o quanto é sua responsabilidade.</p>
+          <table>
+            <thead><tr><th>Modelo</th><th>Você gerencia</th><th>Provedor gerencia</th><th>Analogia</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>IaaS</strong></td><td>S.O., apps, dados</td><td>Hardware, rede, virtualização</td><td>Alugar um carro 🚗</td><td>EC2 (AWS)</td></tr>
+              <tr><td><strong>PaaS</strong></td><td>Apenas o código</td><td>S.O., runtime, servidor, middleware</td><td>Andar de Uber 🚕</td><td>Heroku, Vercel</td></tr>
+              <tr><td><strong>SaaS</strong></td><td>Nada</td><td>Tudo</td><td>Morar em hotel 🏨</td><td>Gmail, Slack</td></tr>
+            </tbody>
+          </table>
+          <div class="callout note">
+            <strong>📌 Quanto mais "alto" o modelo, menos você gerencia — e menos controle tem.</strong>
+            Migrar sua aplicação sem cuidar de hardware, S.O. nem middleware = <strong>PaaS</strong>.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 3 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🏗️</span>
+          <span class="topic-title">Modelos de Implantação</span>
+          <span class="topic-tag">base conceitual</span>
+        </summary>
+        <div class="topic-body">
+          <p>Define <strong>quem tem acesso</strong> à infraestrutura e <strong>onde ela reside</strong>.</p>
+          <table>
+            <thead><tr><th>Modelo</th><th>O que é</th><th>Segurança</th><th>Custo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Pública</strong></td><td>Provedor terceiro via internet, compartilhada</td><td>Padrão</td><td>Baixo (OPEX)</td></tr>
+              <tr><td><strong>Privada</strong></td><td>Exclusiva de uma organização</td><td>Alta</td><td>Alto (CAPEX)</td></tr>
+              <tr><td><strong>Híbrida</strong></td><td>Mistura pública + privada (<em>cloud bursting</em>)</td><td>Alta/Média</td><td>Equilibrado</td></tr>
+              <tr><td><strong>Multicloud</strong></td><td>Dois ou mais provedores ao mesmo tempo</td><td>Variável</td><td>Variável</td></tr>
+            </tbody>
+          </table>
+          <div class="callout important">
+            <strong>⚠️ Critério de escolha:</strong> não depende só da tecnologia, mas da
+            <strong>estratégia de negócio</strong> e da <strong>legislação</strong> (LGPD, bancos, governo).
+            Multicloud evita o <em>vendor lock-in</em> (dependência de um só fornecedor).
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 4 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">💾</span>
+          <span class="topic-title">Infraestrutura de Armazenamento</span>
+          <span class="topic-tag">cai na Q3, Q8</span>
+        </summary>
+        <div class="topic-body">
+          <p>Os 4 pilares de como os dados são guardados na nuvem.</p>
+          <table>
+            <thead><tr><th>Tipo</th><th>Conceito</th><th>Uso ideal</th><th>Performance</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Object (S3)</strong></td><td>Objetos isolados (dado + metadado + ID), estrutura plana</td><td>Arquivos estáticos, backups, fotos, vídeos</td><td>Média</td></tr>
+              <tr><td><strong>Block</strong></td><td>Dado em blocos com endereço próprio ("HD virgem")</td><td>Banco de dados e S.O.</td><td>Altíssima</td></tr>
+              <tr><td><strong>File</strong></td><td>Pastas → subpastas (NAS em nuvem)</td><td>Compartilhar arquivos entre equipes</td><td>Média</td></tr>
+              <tr><td><strong>BigTable/NoSQL</strong></td><td>Tabelas imensas lidas em milissegundos</td><td>Volumes massivos (petabytes)</td><td>Altíssima</td></tr>
+            </tbody>
+          </table>
+          <div class="callout tip">
+            <strong>💡 Dica de prova:</strong> backup massivo + barato + escalável = <strong>Object Storage</strong>.
+            Banco rápido + compartilhar arquivos = <strong>Block + File</strong>.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 5 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🌐</span>
+          <span class="topic-title">Edge Computing</span>
+          <span class="topic-tag">cai na Q4, Q18</span>
+        </summary>
+        <div class="topic-body">
+          <p>Aproxima o processamento da <strong>fonte geradora de dados</strong> (sensores, IoT) em vez de mandar tudo pro data center central. Objetivo principal: <strong>reduzir latência</strong>.</p>
+          <table>
+            <thead><tr><th>Camada</th><th>O que é</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Device</strong></td><td>Sensores e atuadores — dados brutos</td></tr>
+              <tr><td><strong>Edge</strong></td><td>Gateways, micro data centers, routers</td></tr>
+              <tr><td><strong>Fog</strong></td><td>Orquestração local (redes LAN)</td></tr>
+              <tr><td><strong>Cloud</strong></td><td>Data centers massivos — core da rede</td></tr>
+            </tbody>
+          </table>
+          <div class="callout warn">
+            <strong>🚗 Exemplo extremo:</strong> um carro a 100 km/h percorre ~3 m antes de frear se
+            depender da nuvem (100 ms). Na borda, a decisão ocorre em microssegundos. Por isso IoT em
+            tempo real = <strong>Edge</strong>.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 6 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🔒</span>
+          <span class="topic-title">Segurança & Conformidade</span>
+          <span class="topic-tag">cai na Q5, Q7, Q9, Q13, Q15, Q17, Q19</span>
+        </summary>
+        <div class="topic-body">
+          <h4>Responsabilidade Compartilhada</h4>
+          <table>
+            <thead><tr><th>Responsabilidade</th><th>De quem?</th></tr></thead>
+            <tbody>
+              <tr><td>Hardware, regiões, virtualização, instalações</td><td><strong>Provedor</strong></td></tr>
+              <tr><td>Dados, firewall, IAM, criptografia, S.O.</td><td><strong>Cliente</strong></td></tr>
+            </tbody>
+          </table>
+          <div class="callout note">
+            <strong>🏢 Analogia:</strong> o condomínio garante o muro e a portaria. Se você deixar a
+            porta do apê aberta (bucket público!), o roubo é sua responsabilidade.
+          </div>
+
+          <h4>IAM — Identity and Access Management</h4>
+          <ul>
+            <li><strong>Autenticação:</strong> quem é você? (usuário, senha, MFA)</li>
+            <li><strong>Autorização:</strong> o que você pode fazer? (políticas)</li>
+            <li><strong>Privilégio Mínimo (PoLP):</strong> só as permissões estritamente necessárias</li>
+          </ul>
+
+          <h4>Criptografia</h4>
+          <table>
+            <thead><tr><th>Estado</th><th>Proteção</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Em repouso</strong> (no disco/banco)</td><td>AES-256</td></tr>
+              <tr><td><strong>Em trânsito</strong> (na internet)</td><td>TLS / HTTPS</td></tr>
+            </tbody>
+          </table>
+
+          <div class="callout important">
+            <strong>⚠️ MFA</strong> = exige múltiplas formas de verificação de identidade.
+            <strong>Vazamento por bucket público</strong> = má configuração de permissões (não é falha de criptografia!).
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ===================== SIMULADO ===================== -->
+    <section id="simulado" class="view">
+      <div class="section-head">
+        <h2>📝 Simulado — 19 questões</h2>
+        <p>Marque uma alternativa por questão. No final, clique em <strong>Corrigir</strong> pra ver a nota e as explicações.</p>
+      </div>
+
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar"><span id="progressBar"></span></div>
+        <span id="progressText">0 / 19 respondidas</span>
+      </div>
+
+      <div id="quiz"><!-- questões geradas pelo JS --></div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" id="btnCorrigir">✓ Corrigir simulado</button>
+        <button class="btn btn-ghost" id="btnRefazer">↻ Refazer</button>
+      </div>
+
+      <div id="resultado" class="resultado" hidden></div>
+    </section>
+
+    <!-- ===================== DESAFIO ===================== -->
+    <section id="desafio" class="view">
+      <div class="section-head">
+        <h2>🏆 Desafio dissertativo</h2>
+        <p>A questão aberta da revisão. Tente responder de cabeça antes de abrir o gabarito.</p>
+      </div>
+
+      <div class="desafio-card">
+        <p class="desafio-enunciado">
+          Uma empresa deseja migrar <strong>totalmente</strong> sua infraestrutura para cloud computing.
+          Explique como <strong>elasticidade</strong>, <strong>alta disponibilidade</strong>,
+          <strong>IAM</strong>, <strong>criptografia</strong> e <strong>regiões e zonas de disponibilidade</strong>
+          podem contribuir para: <em>segurança, escalabilidade, redução de falhas e continuidade do negócio</em>.
+        </p>
+
+        <button class="btn btn-primary" id="btnGabarito">Ver resposta-modelo ↓</button>
+
+        <div id="gabaritoDesafio" class="gabarito-desafio" hidden>
+          <h4>✍️ Resposta-modelo</h4>
+          <p>A migração total para a nuvem se sustenta quando esses cinco pilares trabalham juntos:</p>
+          <ul>
+            <li><strong>Elasticidade →</strong> garante <em>escalabilidade</em>: a infraestrutura cresce
+              automaticamente em picos de acesso e encolhe na baixa (Auto Scaling), pagando só pelo que usa.</li>
+            <li><strong>Alta disponibilidade →</strong> garante <em>continuidade do negócio</em> e
+              <em>redução de falhas</em>: com redundância e balanceamento de carga, o serviço continua no ar
+              mesmo se um componente falhar.</li>
+            <li><strong>IAM →</strong> reforça a <em>segurança</em>: controla identidades e permissões pelo
+              princípio do privilégio mínimo, evitando acessos indevidos.</li>
+            <li><strong>Criptografia →</strong> protege os dados em <em>repouso</em> (AES-256) e em
+              <em>trânsito</em> (TLS), garantindo confidencialidade — pilar de <em>segurança</em> e conformidade (LGPD).</li>
+            <li><strong>Regiões e zonas de disponibilidade →</strong> distribuem a aplicação geograficamente.
+              Se uma zona ou região cair, outra assume — <em>redução de falhas</em> e <em>continuidade</em>,
+              além de menor latência (Multi-Region).</li>
+          </ul>
+          <p class="conclusao">
+            <strong>Conclusão:</strong> juntos, esses recursos entregam uma infraestrutura
+            <strong>segura, escalável, resiliente e sempre disponível</strong> — exatamente o que justifica
+            migrar 100% para a nuvem.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FLASHCARDS ===================== -->
+    <section id="flashcards" class="view">
+      <div class="section-head">
+        <h2>⚡ Flashcards</h2>
+        <p>Clique no card pra virar. Ideal pra fixar os conceitos na véspera. 🎯</p>
+      </div>
+      <div id="cards" class="cards-grid"><!-- cards gerados pelo JS --></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Feito pra revisão de <strong>Cloud Computing</strong> · ADS Unialfa · Prof. Debber Sousa</p>
+    <p class="footer-sub">Conteúdo das suas anotações do vault + revisão do professor 💪</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

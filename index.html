@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central de Revisão ADS — Unialfa</title>
+  <style>
+    :root {
+      --bg: #070b18; --bg-2: #0d1330; --card-bd: rgba(255,255,255,.1);
+      --txt: #eef1ff; --txt-2: #9aa3c7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+      background:
+        radial-gradient(1000px 500px at 85% -10%, rgba(123,47,247,.25), transparent 60%),
+        radial-gradient(900px 500px at 0% 0%, rgba(16,185,129,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      color: var(--txt); min-height: 100vh; line-height: 1.6;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 64px 22px;
+    }
+    .hero { text-align: center; max-width: 760px; margin-bottom: 48px; }
+    .badge {
+      display: inline-block; padding: 6px 14px; border-radius: 999px;
+      background: rgba(76,201,240,.12); color: #4cc9f0;
+      border: 1px solid rgba(76,201,240,.35);
+      font-size: 13px; font-weight: 700; letter-spacing: .5px; margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(30px, 6vw, 50px); font-weight: 800; line-height: 1.12; }
+    .grad {
+      background: linear-gradient(120deg,#4cc9f0,#8b5cf6,#10b981);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .sub { color: var(--txt-2); font-size: 17px; margin-top: 16px; }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px; width: 100%; max-width: 980px;
+    }
+    .card {
+      position: relative; display: block; text-decoration: none; color: inherit;
+      background: rgba(255,255,255,.04); border: 1px solid var(--card-bd);
+      border-radius: 20px; padding: 26px; overflow: hidden;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .card::before {
+      content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+      background: var(--accent);
+    }
+    .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+    .card-ico { font-size: 40px; margin-bottom: 14px; display: block; }
+    .card h2 { font-size: 21px; font-weight: 800; }
+    .card p { color: var(--txt-2); font-size: 14px; margin: 8px 0 18px; }
+    .card .go { font-weight: 700; color: var(--accent); font-size: 15px; }
+    .c-cloud  { --accent: #4cc9f0; }
+    .c-design { --accent: #ec4899; }
+    .c-ed     { --accent: #a3e635; }
+    footer { color: var(--txt-2); font-size: 13px; margin-top: 48px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <span class="badge">ADS · Unialfa</span>
+    <h1>Central de <span class="grad">Revisão</span></h1>
+    <p class="sub">Meus sites de estudo por matéria — resumão, simulado e flashcards pra detonar nas provas. Escolha a matéria:</p>
+  </div>
+
+  <div class="grid">
+    <a class="card c-cloud" href="./cloud-computing/">
+      <span class="card-ico">☁️</span>
+      <h2>Cloud Computing</h2>
+      <p>Modelos de serviço, armazenamento, edge, segurança, escalabilidade. 19 questões + desafio.</p>
+      <span class="go">Abrir →</span>
+    </a>
+
+    <a class="card c-design" href="./design-de-interface/">
+      <span class="card-ico">🎨</span>
+      <h2>Design de Interface</h2>
+      <p>Google Stitch, persona, user flow, Gestalt, cores e componentes de UI. 8 questões + modo prova.</p>
+      <span class="go">Abrir →</span>
+    </a>
+
+    <a class="card c-ed" href="./estrutura-de-dados/">
+      <span class="card-ico">🗂️</span>
+      <h2>Estrutura de Dados 1</h2>
+      <p>Arrays, enum, referências, listas, pilhas e filas em Java. 16 questões + cola de código.</p>
+      <span class="go">Abrir →</span>
+    </a>
+  </div>
+
+  <footer>Feito pra estudar · ADS Unialfa 💪</footer>
+</body>
+</html>

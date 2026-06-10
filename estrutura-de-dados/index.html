@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estrutura de Dados 1 — Central de Revisão | ADS Unialfa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO / NAV ===================== -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo">🗂️</span>
+      <div class="brand-text">
+        <strong>Estrutura de Dados 1</strong>
+        <small>Central de Revisão · Java · ADS</small>
+      </div>
+    </div>
+    <nav class="nav" id="nav">
+      <button class="nav-btn active" data-target="resumo">📚 Resumão</button>
+      <button class="nav-btn" data-target="simulado">📝 Simulado</button>
+      <button class="nav-btn" data-target="codigo">💻 Código Java</button>
+      <button class="nav-btn" data-target="flashcards">⚡ Flashcards</button>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <span class="badge">Prova · Prof. George · Java</span>
+      <h1>Detona em <span class="grad">Estrutura de Dados</span></h1>
+      <p class="hero-sub">
+        Arrays, enum, ponteiros (referências), Listas, Pilhas e Filas — tudo em Java.
+        Teoria + código + simulado + a cola de código pra revisar rápido. 💻
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-jump="simulado">Fazer simulado →</button>
+        <button class="btn btn-ghost" data-jump="codigo">Ver cola de código</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>6</strong><span>temas</span></div>
+        <div class="stat"><strong>16</strong><span>questões</span></div>
+        <div class="stat"><strong>7</strong><span>blocos de código</span></div>
+        <div class="stat"><strong>18</strong><span>flashcards</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- ===================== RESUMÃO ===================== -->
+    <section id="resumo" class="view active">
+      <div class="section-head">
+        <h2>📚 Resumão por tema</h2>
+        <p>Os 6 temas que o professor falou que vão cair. Clique pra expandir.</p>
+      </div>
+
+      <!-- TEMA 1 — Arrays -->
+      <details class="topic" open>
+        <summary>
+          <span class="topic-ico">📦</span>
+          <span class="topic-title">Arrays (vetores)</span>
+          <span class="topic-tag">Java</span>
+        </summary>
+        <div class="topic-body">
+          <p>Um <strong>array</strong> guarda vários valores <strong>do mesmo tipo</strong> em posições contíguas. O tamanho é <strong>fixo</strong> (definido na criação).</p>
+          <ul>
+            <li>O índice começa em <strong>0</strong>: o primeiro é <code class="inline">v[0]</code>, o último é <code class="inline">v[v.length - 1]</code>.</li>
+            <li><code class="inline">v.length</code> dá a quantidade de posições (é <strong>atributo</strong>, sem parênteses).</li>
+            <li>Acessar índice inválido lança <strong>ArrayIndexOutOfBoundsException</strong>.</li>
+          </ul>
+          <pre><code class="java">int[] nums = new int[5];      // 5 posições: índices 0..4
+nums[0] = 10;                 // grava na 1ª posição
+int[] v = {3, 7, 1, 9};       // já inicializado (length = 4)
+
+for (int i = 0; i &lt; v.length; i++) {
+    System.out.println(v[i]); // percorre por índice
+}</code></pre>
+          <div class="callout warn">
+            <strong>⚠️ Pegadinha:</strong> em array é <code class="inline">.length</code> (atributo). Em String é <code class="inline">.length()</code> (método, com parênteses).
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 2 — Enum -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🏷️</span>
+          <span class="topic-title">Enum</span>
+          <span class="topic-tag">Java</span>
+        </summary>
+        <div class="topic-body">
+          <p>Um <strong>enum</strong> (enumeração) define um <strong>conjunto fixo de constantes nomeadas</strong>. Usa-se quando os valores possíveis são limitados e conhecidos (dias da semana, status, naipes...).</p>
+          <pre><code class="java">enum DiaSemana { SEG, TER, QUA, QUI, SEX, SAB, DOM }
+
+DiaSemana hoje = DiaSemana.SEX;
+
+switch (hoje) {
+    case SAB, DOM -> System.out.println("Fim de semana!");
+    default       -> System.out.println("Dia útil");
+}
+
+for (DiaSemana d : DiaSemana.values()) {   // values() = todos
+    System.out.println(d);
+}</code></pre>
+          <div class="callout tip">
+            <strong>💡 Por que usar:</strong> é mais seguro que <code class="inline">int</code> ou <code class="inline">String</code> soltos — o compilador só aceita os valores definidos. <code class="inline">values()</code> devolve todas as constantes; <code class="inline">ordinal()</code> dá a posição (0, 1, 2...).
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 3 — Ponteiros / Referências -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🔗</span>
+          <span class="topic-title">Ponteiros → Referências em Java</span>
+          <span class="topic-tag">conceito-chave</span>
+        </summary>
+        <div class="topic-body">
+          <div class="callout important">
+            <strong>📌 O mais importante:</strong> Java <strong>NÃO tem ponteiros</strong> como C/C++ (sem <code class="inline">*</code>, sem aritmética de endereço). Java usa <strong>referências</strong> — gerenciadas e seguras.
+          </div>
+          <h4>Valor vs. Referência</h4>
+          <ul>
+            <li><strong>Tipos primitivos</strong> (<code class="inline">int, double, char, boolean</code>) guardam o <strong>valor</strong> direto.</li>
+            <li><strong>Objetos e arrays</strong> guardam uma <strong>referência</strong> (o "endereço") ao objeto na memória (heap).</li>
+            <li><code class="inline">null</code> = referência que não aponta pra nada.</li>
+          </ul>
+          <pre><code class="java">int a = 5;          // 'a' guarda o valor 5
+int[] v = {1, 2};   // 'v' guarda uma REFERÊNCIA ao array
+
+String s = null;    // não aponta pra nada
+System.out.println(s.length()); // 💥 NullPointerException</code></pre>
+          <div class="callout warn">
+            <strong>⚠️ NullPointerException:</strong> acontece quando você usa um método/atributo de uma referência que é <code class="inline">null</code>. É o erro mais comum em Java.
+          </div>
+          <h4>Onde isso aparece em Estrutura de Dados</h4>
+          <p>Nas estruturas <strong>encadeadas</strong> (listas, pilhas e filas feitas com nós), cada <strong>nó</strong> guarda um dado <strong>e uma referência ao próximo nó</strong> — é o "ponteiro" do Java na prática.</p>
+          <pre><code class="java">class No {
+    int valor;
+    No proximo;   // referência ao próximo nó (null = fim da lista)
+}</code></pre>
+        </div>
+      </details>
+
+      <!-- TEMA 4 — Listas -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">📋</span>
+          <span class="topic-title">Listas</span>
+          <span class="topic-tag">Java</span>
+        </summary>
+        <div class="topic-body">
+          <p>Uma <strong>Lista</strong> é uma coleção <strong>ordenada</strong> e de <strong>tamanho dinâmico</strong> (cresce e diminui sozinha). As duas implementações principais:</p>
+          <table>
+            <thead><tr><th>Tipo</th><th>Por dentro</th><th>Boa para</th></tr></thead>
+            <tbody>
+              <tr><td><strong>ArrayList</strong></td><td>Array redimensionável</td><td>Acesso rápido por índice — <code class="inline">get(i)</code></td></tr>
+              <tr><td><strong>LinkedList</strong></td><td>Nós encadeados (referências)</td><td>Inserir/remover nas pontas</td></tr>
+            </tbody>
+          </table>
+          <pre><code class="java">List&lt;String&gt; lista = new ArrayList&lt;&gt;();
+lista.add("Ana");        // adiciona no fim
+lista.add("Bia");
+lista.get(0);            // lê por índice → "Ana"
+lista.remove(0);         // remove por índice
+lista.size();            // quantidade de elementos</code></pre>
+          <div class="callout tip">
+            <strong>💡 Regra prática:</strong> muito <code class="inline">get(i)</code> → <strong>ArrayList</strong>. Muita inserção/remoção no começo/fim → <strong>LinkedList</strong>.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 5 — Pilha -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">📚</span>
+          <span class="topic-title">Pilha (Stack)</span>
+          <span class="topic-tag">LIFO</span>
+        </summary>
+        <div class="topic-body">
+          <div class="callout important">
+            <strong>📌 LIFO — Last In, First Out:</strong> o <strong>último</strong> que entra é o <strong>primeiro</strong> que sai (como uma pilha de pratos).
+          </div>
+          <table>
+            <thead><tr><th>Método</th><th>O que faz</th></tr></thead>
+            <tbody>
+              <tr><td><code class="inline">push(x)</code></td><td>Insere no topo</td></tr>
+              <tr><td><code class="inline">pop()</code></td><td>Remove e retorna o topo</td></tr>
+              <tr><td><code class="inline">peek()</code></td><td>Vê o topo sem remover</td></tr>
+              <tr><td><code class="inline">isEmpty()</code></td><td>Verifica se está vazia</td></tr>
+            </tbody>
+          </table>
+          <pre><code class="java">Stack&lt;Integer&gt; pilha = new Stack&lt;&gt;();
+pilha.push(1); pilha.push(2); pilha.push(3);
+System.out.println(pilha.pop());  // 3 (o último que entrou)</code></pre>
+          <div class="callout note">
+            <strong>📎 Da sua nota:</strong> <code class="inline">Stack</code> está em <code class="inline">java.util</code> e herda de <code class="inline">Vector</code>. <code class="inline">pop()</code> em pilha vazia lança <strong>EmptyStackException</strong>. <code class="inline">push</code> é <strong>O(1)</strong>. Aplicação clássica: <strong>Call Stack</strong> (controle de chamadas de métodos) e avaliação de expressões.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 6 — Fila -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🎫</span>
+          <span class="topic-title">Fila (Queue)</span>
+          <span class="topic-tag">FIFO</span>
+        </summary>
+        <div class="topic-body">
+          <div class="callout important">
+            <strong>📌 FIFO — First In, First Out:</strong> o <strong>primeiro</strong> que entra é o <strong>primeiro</strong> que sai (como fila de banco).
+          </div>
+          <table>
+            <thead><tr><th>Método</th><th>O que faz</th></tr></thead>
+            <tbody>
+              <tr><td><code class="inline">offer(x)</code></td><td>Adiciona no fim</td></tr>
+              <tr><td><code class="inline">poll()</code></td><td>Remove e retorna o primeiro (null se vazia)</td></tr>
+              <tr><td><code class="inline">peek()</code></td><td>Vê o primeiro sem remover</td></tr>
+            </tbody>
+          </table>
+          <pre><code class="java">Queue&lt;Integer&gt; fila = new LinkedList&lt;&gt;();
+fila.offer(1); fila.offer(2); fila.offer(3);
+System.out.println(fila.poll());  // 1 (o primeiro que entrou)</code></pre>
+          <div class="callout note">
+            <strong>📎 Da sua nota:</strong> implementações comuns são <code class="inline">ArrayDeque</code>, <code class="inline">LinkedList</code> e <code class="inline">PriorityQueue</code> (esta entrega sempre o de <em>maior prioridade</em>, não a ordem de chegada).
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ===================== SIMULADO ===================== -->
+    <section id="simulado" class="view">
+      <div class="section-head">
+        <h2>📝 Simulado — 16 questões</h2>
+        <p>Questões de conceito e de "o que esse código imprime?". Marque e clique em <strong>Corrigir</strong>.</p>
+      </div>
+
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar"><span id="progressBar"></span></div>
+        <span id="progressText">0 / 16 respondidas</span>
+      </div>
+
+      <div id="quiz"><!-- questões geradas pelo JS --></div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" id="btnCorrigir">✓ Corrigir simulado</button>
+        <button class="btn btn-ghost" id="btnRefazer">↻ Refazer</button>
+      </div>
+
+      <div id="resultado" class="resultado" hidden></div>
+    </section>
+
+    <!-- ===================== CÓDIGO JAVA ===================== -->
+    <section id="codigo" class="view">
+      <div class="section-head">
+        <h2>💻 Cola de Código Java</h2>
+        <p>Os trechos prontos de cada estrutura. Bate o olho e relembra a sintaxe na hora. 🚀</p>
+      </div>
+      <div id="codigoLista"><!-- blocos gerados pelo JS --></div>
+    </section>
+
+    <!-- ===================== FLASHCARDS ===================== -->
+    <section id="flashcards" class="view">
+      <div class="section-head">
+        <h2>⚡ Flashcards</h2>
+        <p>Clique no card pra virar. Revisão rápida na véspera. 🎯</p>
+      </div>
+      <div id="cards" class="cards-grid"><!-- cards gerados pelo JS --></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Feito pra revisão de <strong>Estrutura de Dados 1</strong> · ADS Unialfa · Prof. George</p>
+    <p class="footer-sub">Conteúdo das suas notas de Pilha e Fila + Arrays, enum, ponteiros e listas 💪</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

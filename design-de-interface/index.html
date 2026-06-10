@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design de Interface — Central de Revisão | ADS Unialfa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO / NAV ===================== -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo">🎨</span>
+      <div class="brand-text">
+        <strong>Design de Interface</strong>
+        <small>Central de Revisão · ADS</small>
+      </div>
+    </div>
+    <nav class="nav" id="nav">
+      <button class="nav-btn active" data-target="resumo">📚 Resumão</button>
+      <button class="nav-btn" data-target="simulado">📝 Simulado</button>
+      <button class="nav-btn" data-target="prova">📋 Modo Prova</button>
+      <button class="nav-btn" data-target="flashcards">⚡ Flashcards</button>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <span class="badge">Prova N2 · Prof. Renato</span>
+      <h1>Manda bem em <span class="grad">Design de Interface</span></h1>
+      <p class="hero-sub">
+        As 8 questões da revisão do professor + o conteúdo das suas anotações.
+        Treine respondendo de cabeça no Modo Prova e fixe nos flashcards. 🎯
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-jump="prova">Modo Prova →</button>
+        <button class="btn btn-ghost" data-jump="resumo">Revisar conteúdo</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>6</strong><span>temas</span></div>
+        <div class="stat"><strong>8</strong><span>questões</span></div>
+        <div class="stat"><strong>8</strong><span>modo prova</span></div>
+        <div class="stat"><strong>16</strong><span>flashcards</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- ===================== RESUMÃO ===================== -->
+    <section id="resumo" class="view active">
+      <div class="section-head">
+        <h2>📚 Resumão por tema</h2>
+        <p>Clique em cada tema para expandir. Cada bloco mostra <em>qual questão</em> ele responde.</p>
+      </div>
+
+      <!-- TEMA 1 — Google Stitch -->
+      <details class="topic" open>
+        <summary>
+          <span class="topic-ico">🤖</span>
+          <span class="topic-title">Google Stitch</span>
+          <span class="topic-tag">cai na Q1 e Q8</span>
+        </summary>
+        <div class="topic-body">
+          <p>Ferramenta do <strong>Google</strong> que usa <strong>IA (Gemini)</strong> para gerar interfaces (UI) a partir de prompts de texto ou imagens — e ainda devolve o código.</p>
+
+          <div class="callout important">
+            <strong>📌 Finalidade (é só UMA):</strong> criação e prototipagem de interfaces em <strong>alta velocidade</strong>.
+          </div>
+
+          <h4>Funcionalidades (cite umas 3)</h4>
+          <ul>
+            <li><strong>Gerar UI por texto</strong> — você descreve a tela e a IA cria <em>(o "comando de letrinhas")</em>.</li>
+            <li><strong>Atualizar/refinar por comando</strong> — ajusta o design em linguagem natural <em>(o "comando de atualização")</em>.</li>
+            <li><strong>Exportar</strong> — manda o resultado pro Figma ou como código (HTML/CSS).</li>
+          </ul>
+
+          <div class="callout tip">
+            <strong>💡 Pulo do gato:</strong> a Q8 pede o "recurso entendido como finalidade principal" — é a <strong>mesma resposta da Q1</strong>: criação e prototipagem em alta velocidade.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 2 — Persona -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">👤</span>
+          <span class="topic-title">Persona</span>
+          <span class="topic-tag">cai na Q2</span>
+        </summary>
+        <div class="topic-body">
+          <p>A persona é um <strong>cliente fictício que representa o usuário ideal</strong> do serviço, construído a partir de pesquisa real (entrevistas, dados).</p>
+          <h4>Importância para o negócio</h4>
+          <ul>
+            <li>Define <strong>para quem</strong> se está projetando — todo mundo do time fala do mesmo usuário.</li>
+            <li>Guia decisões de design e <strong>prioriza as funcionalidades</strong> que importam pra esse usuário.</li>
+            <li>Evita o erro de "projetar pra si mesmo".</li>
+          </ul>
+          <div class="callout note">
+            <strong>🍔 Exemplo iFood:</strong> a persona é o cliente típico (ex.: alguém sem tempo que quer pedir comida rápido). Criar a persona ajuda a decidir quais recursos o app precisa ter.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 3 — User Flow -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🔀</span>
+          <span class="topic-title">User Flow</span>
+          <span class="topic-tag">cai na Q3</span>
+        </summary>
+        <div class="topic-body">
+          <p>O <strong>User Flow</strong> é a representação baseada em <strong>cenários de interação</strong>: o diagrama do caminho que o usuário percorre entre as telas até atingir o objetivo (ex.: do login até finalizar o pedido).</p>
+          <div class="callout warn">
+            <strong>⚠️ Não confunda:</strong> <strong>Wireframe</strong> é o esboço de <em>uma</em> tela; <strong>User Flow</strong> é o <em>fluxo</em> que conecta as telas. Na aula vocês montaram no <strong>Miro</strong>.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 4 — Gestalt / Proximidade -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🧩</span>
+          <span class="topic-title">Gestalt — Lei da Proximidade</span>
+          <span class="topic-tag">cai na Q4</span>
+        </summary>
+        <div class="topic-body">
+          <p><strong>Gestalt</strong> é a teoria da percepção visual: "o todo é mais que a soma das partes". O cérebro agrupa o que vê seguindo princípios.</p>
+          <table>
+            <thead><tr><th>Princípio</th><th>O que diz</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Proximidade</strong> ⭐</td><td>Elementos <em>próximos</em> são percebidos como um grupo</td></tr>
+              <tr><td>Similaridade</td><td>Elementos parecidos (cor/forma) são vistos como do mesmo grupo</td></tr>
+              <tr><td>Continuidade</td><td>O olho segue linhas e curvas contínuas</td></tr>
+              <tr><td>Fechamento</td><td>A mente "completa" formas incompletas</td></tr>
+              <tr><td>Figura-fundo</td><td>Separamos o objeto (figura) do fundo</td></tr>
+            </tbody>
+          </table>
+          <div class="callout important">
+            <strong>📌 Resposta da prova:</strong> o princípio de agrupar por proximidade é a <strong>Lei (ou Princípio) da Proximidade</strong>.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 5 — Psicologia das Cores -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🎨</span>
+          <span class="topic-title">Psicologia das Cores</span>
+          <span class="topic-tag">cai na Q5</span>
+        </summary>
+        <div class="topic-body">
+          <p>Segundo <strong>Eva Heller</strong>, cores não são só estética — elas comunicam emoção. Cada cor carrega significados:</p>
+          <table>
+            <thead><tr><th>Cor</th><th>Associações</th></tr></thead>
+            <tbody>
+              <tr><td><strong>🔵 Azul</strong> ⭐</td><td><strong>Simpatia, harmonia, fidelidade, virtude</strong>, confiança (resposta da Q5!)</td></tr>
+              <tr><td>🔴 Vermelho</td><td>Paixão, energia, urgência, perigo</td></tr>
+              <tr><td>🟢 Verde</td><td>Natureza, saúde, esperança, equilíbrio</td></tr>
+              <tr><td>🟡 Amarelo</td><td>Otimismo, alegria, atenção</td></tr>
+              <tr><td>⚫ Preto</td><td>Luxo, poder, elegância</td></tr>
+              <tr><td>🟣 Roxo</td><td>Luxo, criatividade, espiritualidade</td></tr>
+            </tbody>
+          </table>
+          <div class="callout tip">
+            <strong>💡 Do seu vault:</strong> regra <strong>60-30-10</strong> (60% dominante, 30% secundária, 10% destaque) · Eva Heller: <strong>luxo e poder</strong> = preto, dourado e prata.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 6 — Componentes de UI -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🖥️</span>
+          <span class="topic-title">Componentes de UI</span>
+          <span class="topic-tag">cai na Q6 e Q7</span>
+        </summary>
+        <div class="topic-body">
+          <table>
+            <thead><tr><th>Componente</th><th>Para que serve</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Dialog Box</strong> ⭐</td><td>Exibe <strong>mensagem crítica do sistema</strong> e exige ação (ex.: "Coloque a senha!") — <em>Q6</em></td></tr>
+              <tr><td><strong>Home</strong> (botão) ⭐</td><td>Retorna o usuário para a <strong>tela inicial</strong> 🏠 — <em>Q7</em></td></tr>
+              <tr><td>Tooltip</td><td>Dica curta que aparece ao passar o mouse</td></tr>
+              <tr><td>Snackbar / Toast</td><td>Aviso rápido e temporário (ex.: "Salvo com sucesso")</td></tr>
+              <tr><td>Breadcrumb</td><td>"Migalhas" que mostram onde o usuário está na navegação</td></tr>
+            </tbody>
+          </table>
+          <div class="callout warn">
+            <strong>⚠️ Dica do prof:</strong> Q6 é uma "caixinha" com nome específico = <strong>Dialog Box</strong>. Q7 é o botão que leva pra inicial = <strong>Home</strong>.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ===================== SIMULADO ===================== -->
+    <section id="simulado" class="view">
+      <div class="section-head">
+        <h2>📝 Simulado — 8 questões</h2>
+        <p>Versão múltipla escolha pra treinar reconhecimento. Marque e clique em <strong>Corrigir</strong>.</p>
+      </div>
+
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar"><span id="progressBar"></span></div>
+        <span id="progressText">0 / 8 respondidas</span>
+      </div>
+
+      <div id="quiz"><!-- questões geradas pelo JS --></div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" id="btnCorrigir">✓ Corrigir simulado</button>
+        <button class="btn btn-ghost" id="btnRefazer">↻ Refazer</button>
+      </div>
+
+      <div id="resultado" class="resultado" hidden></div>
+    </section>
+
+    <!-- ===================== MODO PROVA ===================== -->
+    <section id="prova" class="view">
+      <div class="section-head">
+        <h2>📋 Modo Prova</h2>
+        <p>As 8 perguntas <strong>exatas</strong> do Prof. Renato. Tente responder de cabeça, depois clique em <strong>ver resposta</strong>. É assim que vai cair. 💪</p>
+      </div>
+      <div id="provaLista"><!-- perguntas geradas pelo JS --></div>
+    </section>
+
+    <!-- ===================== FLASHCARDS ===================== -->
+    <section id="flashcards" class="view">
+      <div class="section-head">
+        <h2>⚡ Flashcards</h2>
+        <p>Clique no card pra virar. Ideal pra fixar as respostas na véspera. 🎯</p>
+      </div>
+      <div id="cards" class="cards-grid"><!-- cards gerados pelo JS --></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Feito pra revisão de <strong>Design de Interface</strong> · ADS Unialfa · Prof. Renato</p>
+    <p class="footer-sub">Conteúdo das suas anotações do vault + revisão da Prova N2 💪</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
