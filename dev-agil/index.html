@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desenvolvimento Ágil — Central de Revisão | ADS Unialfa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO / NAV ===================== -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo">🔥</span>
+      <div class="brand-text">
+        <strong>Desenvolvimento Ágil</strong>
+        <small>Central de Revisão · ADS</small>
+      </div>
+    </div>
+    <nav class="nav" id="nav">
+      <button class="nav-btn active" data-target="resumo">📚 Resumão</button>
+      <button class="nav-btn" data-target="simulado">📝 Simulado</button>
+      <button class="nav-btn" data-target="desafio">🏆 Desafio</button>
+      <button class="nav-btn" data-target="flashcards">⚡ Flashcards</button>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <span class="badge">Revisão para a prova</span>
+      <h1>Domine <span class="grad">Dev Ágil &amp; DevOps</span> antes da prova</h1>
+      <p class="hero-sub">
+        Scrum, Kanban, Git, Docker, Kubernetes e CI/CD — todo o conteúdo das suas anotações
+        + as 19 questões da revisão do professor, com correção e explicações. Bora gabaritar. 🚀
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-jump="simulado">Começar simulado →</button>
+        <button class="btn btn-ghost" data-jump="resumo">Revisar conteúdo</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>6</strong><span>temas</span></div>
+        <div class="stat"><strong>19</strong><span>questões</span></div>
+        <div class="stat"><strong>1</strong><span>desafio</span></div>
+        <div class="stat"><strong>18</strong><span>flashcards</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- ===================== RESUMÃO ===================== -->
+    <section id="resumo" class="view active">
+      <div class="section-head">
+        <h2>📚 Resumão por tema</h2>
+        <p>Clique em cada tema para expandir. Cada bloco mostra <em>quais questões</em> ele responde.</p>
+      </div>
+
+      <!-- TEMA 1 -->
+      <details class="topic" open>
+        <summary>
+          <span class="topic-ico">🏃</span>
+          <span class="topic-title">Manifesto Ágil &amp; Scrum</span>
+          <span class="topic-tag">cai na Q1, Q2, Q11</span>
+        </summary>
+        <div class="topic-body">
+          <h4>Os 4 valores do Manifesto Ágil (2001)</h4>
+          <p>O manifesto não diz que o lado direito não tem valor — diz que o <strong>lado esquerdo vale MAIS</strong>:</p>
+          <table>
+            <thead><tr><th>Valorizamos MAIS...</th><th>...do que</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Indivíduos e interações</strong></td><td>Processos e ferramentas</td></tr>
+              <tr><td><strong>Software funcionando</strong></td><td>Documentação abrangente</td></tr>
+              <tr><td><strong>Colaboração com o cliente</strong></td><td>Negociação de contratos</td></tr>
+              <tr><td><strong>Responder a mudanças</strong></td><td>Seguir um plano</td></tr>
+            </tbody>
+          </table>
+          <div class="callout warn">
+            <strong>⚠️ Pegadinha clássica:</strong> as alternativas erradas <em>invertem</em> a ordem
+            ("processos mais que pessoas", "documentação mais que software"). Leia com calma!
+          </div>
+
+          <h4>Papéis do Scrum</h4>
+          <table>
+            <thead><tr><th>Papel</th><th>Responsabilidade</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Product Owner (P.O.)</strong></td><td>Maximiza o valor do produto, gerencia o <em>Product Backlog</em></td></tr>
+              <tr><td><strong>Scrum Master</strong></td><td><strong>Remove impedimentos</strong>, facilita o processo e <strong>garante a correta aplicação do framework</strong></td></tr>
+              <tr><td><strong>Time de Desenvolvimento</strong></td><td>Profissionais multidisciplinares que entregam os incrementos</td></tr>
+            </tbody>
+          </table>
+
+          <h4>Eventos</h4>
+          <ul>
+            <li><strong>Sprint:</strong> ciclo fixo de 2–4 semanas onde o trabalho é realizado</li>
+            <li><strong>Sprint Planning:</strong> planejamento do que será feito</li>
+            <li><strong>Daily:</strong> reunião diária de 15 minutos de alinhamento</li>
+            <li><strong>Sprint Review:</strong> demonstração do que foi entregue</li>
+            <li><strong>Sprint Retrospective:</strong> reflexão e melhoria contínua do processo</li>
+          </ul>
+
+          <div class="callout important">
+            <strong>🎯 Direto pra prova:</strong> ao final de <strong>cada Sprint</strong> deve ocorrer uma
+            <strong>entrega incremental potencialmente utilizável do produto</strong> — não é só documentação,
+            não é o fim do projeto, não é deploy obrigatório.
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 2 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">📋</span>
+          <span class="topic-title">Kanban &amp; WIP</span>
+          <span class="topic-tag">cai na Q3</span>
+        </summary>
+        <div class="topic-body">
+          <p><strong>Lema:</strong> "Pare de começar, comece a terminar." Origem no Sistema Toyota, adaptado pra software por David J. Anderson.</p>
+
+          <h4>Os 3 princípios</h4>
+          <ul>
+            <li><strong>Visualizar o fluxo:</strong> o quadro com colunas (<code>Backlog → Dev → Teste → Done</code>) torna o trabalho invisível em cartões visíveis</li>
+            <li><strong>Limitar o WIP</strong> <em>(Work in Progress)</em>: número máximo de tarefas por coluna — ex.: <code>DEV [3]</code></li>
+            <li><strong>Gerenciar o fluxo:</strong> identificar gargalos (coluna que acumula) e agir coletivamente</li>
+          </ul>
+
+          <div class="callout important">
+            <strong>🎯 Direto pra prova:</strong> limitar o WIP serve pra <strong>melhorar o fluxo de
+            trabalho e reduzir gargalos</strong>. Multitarefa gera custo de troca de contexto e atrasa tudo.
+          </div>
+
+          <h4>Métricas de tempo</h4>
+          <table>
+            <thead><tr><th>Métrica</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Lead Time</strong></td><td>Tempo total — do pedido do cliente até a entrega</td></tr>
+              <tr><td><strong>Cycle Time</strong></td><td>Tempo de execução — de quando o trabalho começou até terminar</td></tr>
+            </tbody>
+          </table>
+          <p><strong>Sistema puxado:</strong> o profissional só inicia tarefa nova se tiver capacidade livre (espaço no WIP) — ao contrário do sistema empurrado tradicional.</p>
+        </div>
+      </details>
+
+      <!-- TEMA 3 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🗂️</span>
+          <span class="topic-title">Git &amp; Versionamento</span>
+          <span class="topic-tag">cai na Q9, Q13</span>
+        </summary>
+        <div class="topic-body">
+          <p>A Gerência de Configuração (GCS) garante que o sistema seja <strong>reprodutível</strong> em qualquer momento. O principal benefício do Git: <strong>controle e rastreamento de alterações no código</strong> — quem mudou, o quê, quando e por quê.</p>
+
+          <h4>As 4 áreas de trabalho</h4>
+          <table>
+            <thead><tr><th>Área</th><th>O que é</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Working Directory</strong></td><td>Seus arquivos "vivos" no sistema</td></tr>
+              <tr><td><strong>Staging Area</strong></td><td>O "limbo" — você prepara o que vai subir</td></tr>
+              <tr><td><strong>Repo Local</strong></td><td>Histórico (SHA-1) no seu PC</td></tr>
+              <tr><td><strong>Remote</strong></td><td>Repositório central (GitHub/GitLab) pra colaboração</td></tr>
+            </tbody>
+          </table>
+
+          <h4>Comandos essenciais</h4>
+          <table>
+            <thead><tr><th>Comando</th><th>O que faz</th></tr></thead>
+            <tbody>
+              <tr><td><code>git clone</code></td><td>Copia um repositório remoto pro seu PC</td></tr>
+              <tr><td><code>git pull</code></td><td><strong>Baixa</strong> alterações do remoto</td></tr>
+              <tr><td><code>git push</code></td><td><strong>Envia</strong> alterações locais pro remoto ⭐</td></tr>
+              <tr><td><code>git init</code></td><td>Cria um repositório novo</td></tr>
+              <tr><td><code>git status</code></td><td>Mostra o estado dos arquivos</td></tr>
+            </tbody>
+          </table>
+          <div class="callout tip">
+            <strong>💡 Macete:</strong> <em>push</em> = empurrar (manda pro servidor) ·
+            <em>pull</em> = puxar (traz do servidor). Enviar alterações locais pro remoto = <strong>git push</strong>.
+          </div>
+          <p><strong>Fluxo de trabalho:</strong> <code>pull → checkout -b feature → add → commit → push → Pull Request</code> (revisão antes de entrar na main).</p>
+        </div>
+      </details>
+
+      <!-- TEMA 4 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🐳</span>
+          <span class="topic-title">Docker &amp; Containers</span>
+          <span class="topic-tag">cai na Q6, Q12, Q16</span>
+        </summary>
+        <div class="topic-body">
+          <p>Docker empacota a aplicação <strong>com todas as dependências</strong> num container que roda igual em qualquer lugar. É a cura do famoso <em>"funciona na minha máquina"</em>. 🩹</p>
+
+          <h4>Imagem vs Container</h4>
+          <table>
+            <thead><tr><th>Conceito</th><th>O que é</th><th>Analogia</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Imagem</strong></td><td><strong>Modelo (template) para criação de containers</strong> — imutável</td><td>A receita do bolo 📋</td></tr>
+              <tr><td><strong>Container</strong></td><td>Instância em execução criada a partir da imagem</td><td>O bolo assado 🎂</td></tr>
+            </tbody>
+          </table>
+
+          <h4>Container vs Máquina Virtual</h4>
+          <ul>
+            <li>Containers são <strong>mais leves</strong> que VMs — compartilham o kernel do S.O. hospedeiro, não emulam hardware</li>
+            <li>Docker <strong>não</strong> elimina a necessidade de sistema operacional (usa o kernel do host!)</li>
+            <li>Docker roda em Linux, Windows e Mac — não é "apenas Windows"</li>
+            <li>Containers <strong>não</strong> exigem hardware dedicado</li>
+          </ul>
+
+          <div class="callout important">
+            <strong>🎯 Direto pra prova:</strong> empresa quer que a aplicação funcione <strong>igual</strong>
+            em desenvolvimento, homologação e produção? <strong>Containers Docker.</strong><br>
+            Empresa sofre com "funciona na minha máquina", conflito de dependências e diferenças entre
+            ambientes? <strong>Docker e padronização de ambientes.</strong>
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 5 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">☸️</span>
+          <span class="topic-title">Kubernetes — Orquestração</span>
+          <span class="topic-tag">cai na Q7, Q14, Q15, Q17</span>
+        </summary>
+        <div class="topic-body">
+          <p>O <strong>Kubernetes (k8s)</strong> é a plataforma para <strong>gerenciar containers em larga escala</strong> — o "maestro" da orquestra. Automatiza implantação, dimensionamento e gestão.</p>
+
+          <h4>Componentes</h4>
+          <table>
+            <thead><tr><th>Componente</th><th>Papel</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Cluster</strong></td><td>Conjunto de máquinas (nodes)</td></tr>
+              <tr><td><strong>Control Plane</strong></td><td>O "cérebro" — decide onde os containers rodam</td></tr>
+              <tr><td><strong>Nodes workers</strong></td><td>Máquinas que executam o trabalho</td></tr>
+              <tr><td><strong>Pod</strong></td><td>A menor unidade — você sobe pods, não containers soltos</td></tr>
+            </tbody>
+          </table>
+
+          <h4>A "mágica" da autonomia</h4>
+          <table>
+            <thead><tr><th>Recurso</th><th>O que faz</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Auto-scaling</strong></td><td><strong>Aumenta ou reduz containers conforme a demanda</strong> (monitora CPU e reage sozinho)</td></tr>
+              <tr><td><strong>Self-healing</strong></td><td><strong>Recuperação automática de containers com falha</strong> — reinicia em servidor saudável</td></tr>
+              <tr><td><strong>Rolling update</strong></td><td>Atualiza versão por versão, sem downtime</td></tr>
+            </tbody>
+          </table>
+
+          <div class="callout note">
+            <strong>📌 Exemplo Black Friday:</strong> tráfego sobe 100% à meia-noite → k8s vê CPU a 90% →
+            escala de 10 pra 100 pods sozinho → de manhã o tráfego cai → k8s desliga os extras. 🛒
+          </div>
+
+          <div class="callout important">
+            <strong>🎯 Direto pra prova:</strong> startup com crescimento acelerado que precisa de
+            <em>escalabilidade + alta disponibilidade + recuperação automática de falhas</em> =
+            <strong>Kubernetes</strong>. (GitHub versiona, HTML estrutura página, Scrum Board organiza
+            tarefas, SQL Server guarda dados — nenhum escala containers!)
+          </div>
+        </div>
+      </details>
+
+      <!-- TEMA 6 -->
+      <details class="topic">
+        <summary>
+          <span class="topic-ico">🔄</span>
+          <span class="topic-title">CI/CD, DevOps &amp; Testes</span>
+          <span class="topic-tag">cai na Q4, Q5, Q8, Q10, Q18, Q19</span>
+        </summary>
+        <div class="topic-body">
+          <h4>CI — Integração Contínua</h4>
+          <p>Função principal: <strong>integrar código frequentemente com testes automatizados</strong>.
+          Cada commit dispara build + testes — o erro aparece em minutos, não em semanas.</p>
+
+          <h4>CD — Entrega vs Implantação Contínua</h4>
+          <table>
+            <thead><tr><th>Conceito</th><th>Como funciona</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Continuous Delivery</strong></td><td>Código sempre pronto pra produção, mas o deploy final tem <em>aprovação manual</em></td></tr>
+              <tr><td><strong>Continuous Deployment</strong></td><td><strong>O deploy ocorre automaticamente após validações automatizadas</strong> — zero intervenção humana</td></tr>
+            </tbody>
+          </table>
+
+          <h4>Pipeline CI/CD</h4>
+          <ul>
+            <li>Busca principalmente: <strong>automatizar integração, testes e entrega de software</strong></li>
+            <li>Pipeline <em>madura</em> reduz principalmente: <strong>erros humanos e tempo de entrega</strong></li>
+          </ul>
+
+          <h4>DevOps</h4>
+          <p>Cultura que integra <strong>Dev</strong>elopment + <strong>Op</strong>erations. A integração busca:
+          <strong>melhorar colaboração, automação e entrega contínua</strong> — nunca separar equipes nem
+          aumentar burocracia.</p>
+
+          <h4>Testes</h4>
+          <table>
+            <thead><tr><th>Tipo</th><th>Objetivo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Unitário</strong></td><td>Testa um módulo/função <em>isoladamente</em></td></tr>
+              <tr><td><strong>Integração</strong></td><td><strong>Validar a comunicação entre componentes integrados</strong> ⭐</td></tr>
+            </tbody>
+          </table>
+          <div class="callout tip">
+            <strong>💡 Macete:</strong> unitário = peça sozinha · integração = peças <em>conversando</em>.
+            Se a questão fala em "comunicação entre módulos/componentes" = teste de integração.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ===================== SIMULADO ===================== -->
+    <section id="simulado" class="view">
+      <div class="section-head">
+        <h2>📝 Simulado — 19 questões</h2>
+        <p>As questões exatas da revisão do professor. Marque uma alternativa por questão e clique em <strong>Corrigir</strong> no final.</p>
+      </div>
+
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar"><span id="progressBar"></span></div>
+        <span id="progressText">0 / 19 respondidas</span>
+      </div>
+
+      <div id="quiz"><!-- questões geradas pelo JS --></div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" id="btnCorrigir">✓ Corrigir simulado</button>
+        <button class="btn btn-ghost" id="btnRefazer">↻ Refazer</button>
+      </div>
+
+      <div id="resultado" class="resultado" hidden></div>
+    </section>
+
+    <!-- ===================== DESAFIO ===================== -->
+    <section id="desafio" class="view">
+      <div class="section-head">
+        <h2>🏆 Desafio dissertativo</h2>
+        <p>A questão aberta da revisão. Tente responder de cabeça antes de abrir o gabarito.</p>
+      </div>
+
+      <div class="desafio-card">
+        <p class="desafio-enunciado">
+          Uma empresa deseja <strong>modernizar seu processo de desenvolvimento de software</strong> utilizando:
+        </p>
+        <ul class="desafio-lista">
+          <li><strong>Scrum</strong></li>
+          <li><strong>Git</strong></li>
+          <li><strong>Docker</strong></li>
+          <li><strong>Kubernetes</strong></li>
+          <li><strong>CI/CD</strong></li>
+        </ul>
+        <p class="desafio-enunciado">
+          Explique como cada tecnologia/metodologia pode contribuir para: <em>qualidade de software,
+          velocidade de entrega, escalabilidade, colaboração entre equipes e redução de falhas em produção</em>.
+        </p>
+
+        <button class="btn btn-primary" id="btnGabarito">Ver resposta-modelo ↓</button>
+
+        <div id="gabaritoDesafio" class="gabarito-desafio" hidden>
+          <h4>✍️ Resposta-modelo</h4>
+          <p>A modernização funciona porque cada peça resolve uma dor específica do processo:</p>
+
+          <h5>🏃 Scrum</h5>
+          <ul>
+            <li><strong>Colaboração:</strong> papéis claros (P.O., Scrum Master, time) e eventos como Daily e Review mantêm todos alinhados com o cliente.</li>
+            <li><strong>Velocidade:</strong> sprints curtas geram entregas incrementais frequentes em vez de um "big bang" no fim do projeto.</li>
+            <li><strong>Qualidade:</strong> feedback contínuo dos stakeholders e retrospectivas corrigem o rumo cedo.</li>
+          </ul>
+
+          <h5>🗂️ Git</h5>
+          <ul>
+            <li><strong>Qualidade:</strong> todo código passa por revisão via Pull Request antes de entrar na main.</li>
+            <li><strong>Colaboração:</strong> branches permitem que vários devs trabalhem em paralelo sem se atropelar.</li>
+            <li><strong>Redução de falhas:</strong> histórico completo e rastreável — qualquer versão pode ser restaurada (rollback).</li>
+          </ul>
+
+          <h5>🐳 Docker</h5>
+          <ul>
+            <li><strong>Redução de falhas:</strong> ambientes padronizados eliminam o "funciona na minha máquina" — dev, homologação e produção idênticos.</li>
+            <li><strong>Velocidade:</strong> a aplicação já vai empacotada com todas as dependências, pronta pra rodar em qualquer lugar.</li>
+          </ul>
+
+          <h5>☸️ Kubernetes</h5>
+          <ul>
+            <li><strong>Escalabilidade:</strong> auto-scaling aumenta ou reduz containers automaticamente conforme a demanda.</li>
+            <li><strong>Redução de falhas em produção:</strong> self-healing reinicia containers com falha sozinho; rolling updates atualizam sem downtime — alta disponibilidade.</li>
+          </ul>
+
+          <h5>🔄 CI/CD</h5>
+          <ul>
+            <li><strong>Velocidade de entrega:</strong> integração, testes e deploy automatizados — código chega em produção em minutos.</li>
+            <li><strong>Qualidade:</strong> testes automatizados rodam a cada commit, pegando bugs cedo.</li>
+            <li><strong>Redução de falhas:</strong> menos passos manuais = menos erro humano.</li>
+          </ul>
+
+          <p class="conclusao">
+            <strong>Conclusão:</strong> Scrum organiza <em>como o time trabalha</em>, Git protege
+            <em>o código</em>, Docker padroniza <em>os ambientes</em>, Kubernetes garante <em>escala e
+            resiliência</em> e o CI/CD <em>automatiza o caminho até produção</em>. Juntos formam a base da
+            cultura <strong>DevOps</strong>: colaboração, automação e entrega contínua.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FLASHCARDS ===================== -->
+    <section id="flashcards" class="view">
+      <div class="section-head">
+        <h2>⚡ Flashcards</h2>
+        <p>Clique no card pra virar. Ideal pra fixar os conceitos na véspera. 🎯</p>
+      </div>
+      <div id="cards" class="cards-grid"><!-- cards gerados pelo JS --></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Feito pra revisão de <strong>Desenvolvimento Ágil de Software</strong> · ADS Unialfa</p>
+    <p class="footer-sub">Conteúdo das suas anotações do vault + revisão do professor 💪</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
